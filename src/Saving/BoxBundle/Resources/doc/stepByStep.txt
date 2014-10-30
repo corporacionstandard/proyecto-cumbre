@@ -1,0 +1,37 @@
+Generando Bundle
+    app/console generate:bundle
+    Bundle namespace: Saving/BoxBundle 
+    Configuration format (yml, xml, php, or annotation): annotation
+Importando desde la BD
+    app/console doctrine:mapping:import SavingBoxBundle annotation
+CRUD
+    app/console doctrine:generate:crud
+    The Entity shortcut name: SavingBoxBundle:Persona
+    Do you want to generate the "write" actions [no]? yes
+    Configuration format (yml, xml, php, or annotation) [annotation]: annotation
+    Routes prefix [/persona]: 
+Created_at y Updated_at
+    Entity Persona
+        /**
+        * Persona
+        *
+        * @ORM\Table(name="persona", uniqueConstraints={@ORM\UniqueConstraint(name="ci_UNIQUE", columns={"ci"})}, indexes={@ORM\Index(name="fk_persona_banco", columns={"banco_id"}), @ORM\Index(name="fk_persona_data", columns={"data_id"})})
+        * @ORM\HasLifecycleCallbacks
+        * @ORM\Entity
+        */
+       class Persona
+       {.....
+        /**
+         * @ORM\PrePersist
+         * @ORM\PreUpdate
+         */
+        public function updatedTimestamps()
+        {
+            $this->setUpdatedAt(new \DateTime(date('Y-m-d H:i:s')));
+
+            if($this->getCreatedAt() == null)
+            {
+                $this->setCreatedAt(new \DateTime(date('Y-m-d H:i:s')));
+            }
+        }
+        eliminar del formulario created_at updated_at Form/PersonaType.php

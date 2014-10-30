@@ -1,0 +1,5 @@
+saving_box:
+    resource: "@SavingBoxBundle/Controller/"
+    type:     annotation
+    prefix:   /savings
+

@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Persona creation</h1>
+
+    {{ form(form) }}
+    {{ form_row(form.nombre1) }}
+    {{ form_row(form.nombre2) }}
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('persona') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

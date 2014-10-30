@@ -1,0 +1,79 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Persona list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ci</th>
+                <th>Nombre1</th>
+                <th>Nombre2</th>
+                <th>Apellido1</th>
+                <th>Apellido2</th>
+                <th>Fechanac</th>
+                <th>Sexo</th>
+                <th>Img</th>
+                <th>Tlfmovil</th>
+                <th>Tlffijo</th>
+                <th>Email</th>
+                <th>Facebookid</th>
+                <th>Twitterid</th>
+                <th>Direccion</th>
+                <th>Ncuenta</th>
+                <th>Tcuenta</th>
+                <th>Usuarioid</th>
+                <th>Ip</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('persona_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.ci }}</td>
+                <td>{{ entity.nombre1 }}</td>
+                <td>{{ entity.nombre2 }}</td>
+                <td>{{ entity.apellido1 }}</td>
+                <td>{{ entity.apellido2 }}</td>
+                <td>{% if entity.fechaNac %}{{ entity.fechaNac|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.sexo }}</td>
+                <td>{{ entity.img }}</td>
+                <td>{{ entity.tlfMovil }}</td>
+                <td>{{ entity.tlfFijo }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.facebookId }}</td>
+                <td>{{ entity.twitterId }}</td>
+                <td>{{ entity.direccion }}</td>
+                <td>{{ entity.nCuenta }}</td>
+                <td>{{ entity.tCuenta }}</td>
+                <td>{{ entity.usuarioId }}</td>
+                <td>{{ entity.ip }}</td>
+                <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('persona_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('persona_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('persona_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
