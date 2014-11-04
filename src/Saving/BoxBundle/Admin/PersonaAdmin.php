@@ -10,6 +10,9 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class PersonaAdmin extends Admin
 {
+    
+    protected $translationDomain = 'SonataPageBundle'; // default is 'messages'
+    
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -33,10 +36,10 @@ class PersonaAdmin extends Admin
             ->add('direccion')
             ->add('nCuenta')
             ->add('tCuenta')
-            ->add('usuarioId')
-            ->add('ip')
-            ->add('createdAt')
-            ->add('updatedAt')
+            //->add('usuarioId')
+            //->add('ip')
+            //->add('createdAt')
+            //->add('updatedAt')
         ;
     }
 
@@ -53,20 +56,20 @@ class PersonaAdmin extends Admin
             ->add('apellido1')
             ->add('apellido2')
             ->add('fechaNac')
-            ->add('sexo')
-            ->add('img')
+            //->add('sexo')
+            //->add('img')
             ->add('tlfMovil')
-            ->add('tlfFijo')
+            //->add('tlfFijo')
             ->add('email')
-            ->add('facebookId')
-            ->add('twitterId')
-            ->add('direccion')
-            ->add('nCuenta')
-            ->add('tCuenta')
-            ->add('usuarioId')
-            ->add('ip')
-            ->add('createdAt')
-            ->add('updatedAt')
+            //->add('facebookId')
+            //->add('twitterId')
+            //->add('direccion')
+            //->add('nCuenta')
+            //->add('tCuenta')
+            //->add('usuarioId')
+            //->add('ip')
+            //->add('createdAt')
+            //->add('updatedAt')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -102,8 +105,9 @@ class PersonaAdmin extends Admin
             ->add('tCuenta')
             ->add('usuarioId')
             ->add('ip')
-            ->add('createdAt')
-            ->add('updatedAt')
+            ->add('banco')
+            //->add('createdAt')
+            //->add('updatedAt')
         ;
     }
 
@@ -132,8 +136,8 @@ class PersonaAdmin extends Admin
             ->add('tCuenta')
             ->add('usuarioId')
             ->add('ip')
-            ->add('createdAt')
-            ->add('updatedAt')
+            //->add('createdAt')
+            //->add('updatedAt')
         ;
     }
 }
