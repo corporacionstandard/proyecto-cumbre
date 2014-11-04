@@ -1,0 +1,6 @@
+services:
+    saving_box.admin.persona:
+        class: Saving\BoxBundle\Admin\PersonaAdmin
+        arguments: [~, Saving\BoxBundle\Entity\Persona, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Persona}

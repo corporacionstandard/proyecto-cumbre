@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: @SavingBoxBundle/Resources/config/services.yml }
 
 framework:
     #esi:             ~
@@ -71,6 +72,10 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+sonata_admin:
+    title:      Box Bundle
+    title_logo: bundles/savingbox/img/logo.png
+    
 sonata_block:
     default_contexts: [cms]
     blocks:
