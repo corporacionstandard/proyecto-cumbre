@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Persona
  *
  * @ORM\Table(name="persona", uniqueConstraints={@ORM\UniqueConstraint(name="ci_UNIQUE", columns={"ci"})}, indexes={@ORM\Index(name="fk_persona_banco", columns={"banco_id"}), @ORM\Index(name="fk_persona_data", columns={"data_id"})})
- * @ORM\HasLifecycleCallbacks
+ * @ORM\HasLifecycleCallbacks()
  * @ORM\Entity
  */
 class Persona
@@ -181,6 +181,11 @@ class Persona
      * })
      */
     private $data;
+    
+    public function __construct() {
+        $this->setCreatedAt(new \DateTime());
+        $this->setUpdatedAt(new \DateTime());
+    }
 
     function getId() {
         return $this->id;
@@ -350,12 +355,30 @@ class Persona
         $this->ip = $ip;
     }
 
-    function setCreatedAt(\DateTime $createdAt) {
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Persona
+     */
+    public function setCreatedAt($createdAt)
+    {
         $this->createdAt = $createdAt;
+
+        return $this;
     }
 
-    function setUpdatedAt(\DateTime $updatedAt) {
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return Persona
+     */
+    public function setUpdatedAt($updatedAt)
+    {
         $this->updatedAt = $updatedAt;
+
+        return $this;
     }
 
     function setBanco(\Banco $banco) {
@@ -365,17 +388,20 @@ class Persona
     function setData(\Data $data) {
         $this->data = $data;
     }
+    
     /**
      * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->created_at = new \DateTime();
+    }
+    
+    /**
      * @ORM\PreUpdate
      */
-    public function updatedTimestamps()
+    public function setUpdatedAtValue()
     {
-        $this->setUpdatedAt(new \DateTime(date('Y-m-d H:i:s')));
-
-        if($this->getCreatedAt() == null)
-        {
-            $this->setCreatedAt(new \DateTime(date('Y-m-d H:i:s')));
-        }
+       $this->setUpdatedAt(new \DateTime());
     }
 }
