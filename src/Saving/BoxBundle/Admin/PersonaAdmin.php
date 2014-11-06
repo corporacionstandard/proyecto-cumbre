@@ -11,31 +11,29 @@ use Sonata\AdminBundle\Show\ShowMapper;
 class PersonaAdmin extends Admin
 {
     
-    protected $translationDomain = 'SonataPageBundle'; // default is 'messages'
-    
     /**
      * @param DatagridMapper $datagridMapper
      */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
+            //->add('id')
             ->add('ci')
             ->add('nombre1')
-            ->add('nombre2')
+            //->add('nombre2')
             ->add('apellido1')
-            ->add('apellido2')
+            //->add('apellido2')
             ->add('fechaNac')
             ->add('sexo')
-            ->add('img')
-            ->add('tlfMovil')
-            ->add('tlfFijo')
+            //->add('img')
+            //->add('tlfMovil')
+            //->add('tlfFijo')
             ->add('email')
-            ->add('facebookId')
-            ->add('twitterId')
-            ->add('direccion')
-            ->add('nCuenta')
-            ->add('tCuenta')
+            //->add('facebookId')
+            //->add('twitterId')
+            //->add('direccion')
+            //->add('nCuenta')
+            //->add('tCuenta')
             //->add('usuarioId')
             //->add('ip')
             //->add('createdAt')
