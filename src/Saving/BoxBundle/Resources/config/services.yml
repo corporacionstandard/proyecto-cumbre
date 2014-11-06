@@ -4,3 +4,15 @@ services:
         arguments: [~, Saving\BoxBundle\Entity\Persona, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: Persona}
+
+    saving_box.admin.data:
+        class: Saving\BoxBundle\Admin\DataAdmin
+        arguments: [~, Saving\BoxBundle\Entity\Data, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Data}
+
+    saving_box.admin.banco:
+        class: Saving\BoxBundle\Admin\BancoAdmin
+        arguments: [~, Saving\BoxBundle\Entity\Banco, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Banco}

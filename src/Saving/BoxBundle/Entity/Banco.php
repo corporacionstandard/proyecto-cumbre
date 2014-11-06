@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Banco
  *
  * @ORM\Table(name="banco")
+ * @ORM\HasLifecycleCallbacks()
  * @ORM\Entity
  */
 class Banco
@@ -55,7 +56,11 @@ class Banco
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
     private $updatedAt;
-
+    
+    public function __construct() {
+        $this->setCreatedAt(new \DateTime());
+        $this->setUpdatedAt(new \DateTime());
+    }
 
     public function __toString() 
     {
@@ -186,5 +191,21 @@ class Banco
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->created_at = new \DateTime();
+    }
+    
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAtValue()
+    {
+       $this->setUpdatedAt(new \DateTime());
     }
 }

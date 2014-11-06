@@ -1,11 +1,11 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: @SavingBoxBundle/Resources/config/services.yml }
+    - { resource: '@SavingBoxBundle/Resources/config/services.yml' }
 
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
+    translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -76,12 +76,32 @@ sonata_admin:
     title:      Box Bundle
     title_logo: bundles/savingbox/img/logo.png
     
+    dashboard:
+        blocks:
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+            -
+                position: right
+                type: sonata.block.service.text
+                settings:
+                    content: >
+                        <h2>Bienvenido al Panel de Control</h2>
+                        <p>Esta área es privada.</p> <br /> For instance, here
+                        a RSS feed parser (<code>sonata.block.service.rss</code>):
+            -
+                position: right
+                type: sonata.block.service.rss
+                settings:
+                    title: Sonata Project's Feeds
+                    url: http://sonata-project.org/blog/archive.rss
+    
 sonata_block:
     default_contexts: [cms]
     blocks:
         sonata.admin.block.admin_list:
             contexts: [admin]
         
-#        sonata.block.service.text:   ~
-#        sonata.block.service.action: ~
-#        sonata.block.service.rss:    ~
+        sonata.block.service.text:   ~
+        sonata.block.service.action: ~
+        sonata.block.service.rss:    ~
