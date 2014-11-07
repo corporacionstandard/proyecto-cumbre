@@ -186,173 +186,445 @@ class Persona
         $this->setCreatedAt(new \DateTime());
         $this->setUpdatedAt(new \DateTime());
     }
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->created_at = new \DateTime();
+    }
+    
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAtValue()
+    {
+       $this->setUpdatedAt(new \DateTime());
+    }
 
-    function getId() {
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    function getCi() {
+    /**
+     * Set ci
+     *
+     * @param string $ci
+     * @return Persona
+     */
+    public function setCi($ci)
+    {
+        $this->ci = $ci;
+
+        return $this;
+    }
+
+    /**
+     * Get ci
+     *
+     * @return string 
+     */
+    public function getCi()
+    {
         return $this->ci;
     }
 
-    function getNombre1() {
+    /**
+     * Set nombre1
+     *
+     * @param string $nombre1
+     * @return Persona
+     */
+    public function setNombre1($nombre1)
+    {
+        $this->nombre1 = $nombre1;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre1
+     *
+     * @return string 
+     */
+    public function getNombre1()
+    {
         return $this->nombre1;
     }
 
-    function getNombre2() {
+    /**
+     * Set nombre2
+     *
+     * @param string $nombre2
+     * @return Persona
+     */
+    public function setNombre2($nombre2)
+    {
+        $this->nombre2 = $nombre2;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre2
+     *
+     * @return string 
+     */
+    public function getNombre2()
+    {
         return $this->nombre2;
     }
 
-    function getApellido1() {
+    /**
+     * Set apellido1
+     *
+     * @param string $apellido1
+     * @return Persona
+     */
+    public function setApellido1($apellido1)
+    {
+        $this->apellido1 = $apellido1;
+
+        return $this;
+    }
+
+    /**
+     * Get apellido1
+     *
+     * @return string 
+     */
+    public function getApellido1()
+    {
         return $this->apellido1;
     }
 
-    function getApellido2() {
+    /**
+     * Set apellido2
+     *
+     * @param string $apellido2
+     * @return Persona
+     */
+    public function setApellido2($apellido2)
+    {
+        $this->apellido2 = $apellido2;
+
+        return $this;
+    }
+
+    /**
+     * Get apellido2
+     *
+     * @return string 
+     */
+    public function getApellido2()
+    {
         return $this->apellido2;
     }
 
-    function getFechaNac() {
+    /**
+     * Set fechaNac
+     *
+     * @param \DateTime $fechaNac
+     * @return Persona
+     */
+    public function setFechaNac($fechaNac)
+    {
+        $this->fechaNac = $fechaNac;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaNac
+     *
+     * @return \DateTime 
+     */
+    public function getFechaNac()
+    {
         return $this->fechaNac;
     }
 
-    function getSexo() {
+    /**
+     * Set sexo
+     *
+     * @param string $sexo
+     * @return Persona
+     */
+    public function setSexo($sexo)
+    {
+        $this->sexo = $sexo;
+
+        return $this;
+    }
+
+    /**
+     * Get sexo
+     *
+     * @return string 
+     */
+    public function getSexo()
+    {
         return $this->sexo;
     }
 
-    function getImg() {
+    /**
+     * Set img
+     *
+     * @param string $img
+     * @return Persona
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+
+    /**
+     * Get img
+     *
+     * @return string 
+     */
+    public function getImg()
+    {
         return $this->img;
     }
 
-    function getTlfMovil() {
+    /**
+     * Set tlfMovil
+     *
+     * @param string $tlfMovil
+     * @return Persona
+     */
+    public function setTlfMovil($tlfMovil)
+    {
+        $this->tlfMovil = $tlfMovil;
+
+        return $this;
+    }
+
+    /**
+     * Get tlfMovil
+     *
+     * @return string 
+     */
+    public function getTlfMovil()
+    {
         return $this->tlfMovil;
     }
 
-    function getTlfFijo() {
+    /**
+     * Set tlfFijo
+     *
+     * @param string $tlfFijo
+     * @return Persona
+     */
+    public function setTlfFijo($tlfFijo)
+    {
+        $this->tlfFijo = $tlfFijo;
+
+        return $this;
+    }
+
+    /**
+     * Get tlfFijo
+     *
+     * @return string 
+     */
+    public function getTlfFijo()
+    {
         return $this->tlfFijo;
     }
 
-    function getEmail() {
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Persona
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
         return $this->email;
     }
 
-    function getFacebookId() {
+    /**
+     * Set facebookId
+     *
+     * @param string $facebookId
+     * @return Persona
+     */
+    public function setFacebookId($facebookId)
+    {
+        $this->facebookId = $facebookId;
+
+        return $this;
+    }
+
+    /**
+     * Get facebookId
+     *
+     * @return string 
+     */
+    public function getFacebookId()
+    {
         return $this->facebookId;
     }
 
-    function getTwitterId() {
+    /**
+     * Set twitterId
+     *
+     * @param string $twitterId
+     * @return Persona
+     */
+    public function setTwitterId($twitterId)
+    {
+        $this->twitterId = $twitterId;
+
+        return $this;
+    }
+
+    /**
+     * Get twitterId
+     *
+     * @return string 
+     */
+    public function getTwitterId()
+    {
         return $this->twitterId;
     }
 
-    function getDireccion() {
+    /**
+     * Set direccion
+     *
+     * @param string $direccion
+     * @return Persona
+     */
+    public function setDireccion($direccion)
+    {
+        $this->direccion = $direccion;
+
+        return $this;
+    }
+
+    /**
+     * Get direccion
+     *
+     * @return string 
+     */
+    public function getDireccion()
+    {
         return $this->direccion;
     }
 
-    function getNCuenta() {
+    /**
+     * Set nCuenta
+     *
+     * @param string $nCuenta
+     * @return Persona
+     */
+    public function setNCuenta($nCuenta)
+    {
+        $this->nCuenta = $nCuenta;
+
+        return $this;
+    }
+
+    /**
+     * Get nCuenta
+     *
+     * @return string 
+     */
+    public function getNCuenta()
+    {
         return $this->nCuenta;
     }
 
-    function getTCuenta() {
+    /**
+     * Set tCuenta
+     *
+     * @param string $tCuenta
+     * @return Persona
+     */
+    public function setTCuenta($tCuenta)
+    {
+        $this->tCuenta = $tCuenta;
+
+        return $this;
+    }
+
+    /**
+     * Get tCuenta
+     *
+     * @return string 
+     */
+    public function getTCuenta()
+    {
         return $this->tCuenta;
     }
 
-    function getUsuarioId() {
+    /**
+     * Set usuarioId
+     *
+     * @param integer $usuarioId
+     * @return Persona
+     */
+    public function setUsuarioId($usuarioId)
+    {
+        $this->usuarioId = $usuarioId;
+
+        return $this;
+    }
+
+    /**
+     * Get usuarioId
+     *
+     * @return integer 
+     */
+    public function getUsuarioId()
+    {
         return $this->usuarioId;
     }
 
-    function getIp() {
-        return $this->ip;
-    }
-
-    function getCreatedAt() {
-        return $this->createdAt;
-    }
-
-    function getUpdatedAt() {
-        return $this->updatedAt;
-    }
-
-    function getBanco() {
-        return $this->banco;
-    }
-
-    function getData() {
-        return $this->data;
-    }
-
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setCi($ci) {
-        $this->ci = $ci;
-    }
-
-    function setNombre1($nombre1) {
-        $this->nombre1 = $nombre1;
-    }
-
-    function setNombre2($nombre2) {
-        $this->nombre2 = $nombre2;
-    }
-
-    function setApellido1($apellido1) {
-        $this->apellido1 = $apellido1;
-    }
-
-    function setApellido2($apellido2) {
-        $this->apellido2 = $apellido2;
-    }
-
-    function setFechaNac(\DateTime $fechaNac) {
-        $this->fechaNac = $fechaNac;
-    }
-
-    function setSexo($sexo) {
-        $this->sexo = $sexo;
-    }
-
-    function setImg($img) {
-        $this->img = $img;
-    }
-
-    function setTlfMovil($tlfMovil) {
-        $this->tlfMovil = $tlfMovil;
-    }
-
-    function setTlfFijo($tlfFijo) {
-        $this->tlfFijo = $tlfFijo;
-    }
-
-    function setEmail($email) {
-        $this->email = $email;
-    }
-
-    function setFacebookId($facebookId) {
-        $this->facebookId = $facebookId;
-    }
-
-    function setTwitterId($twitterId) {
-        $this->twitterId = $twitterId;
-    }
-
-    function setDireccion($direccion) {
-        $this->direccion = $direccion;
-    }
-
-    function setNCuenta($nCuenta) {
-        $this->nCuenta = $nCuenta;
-    }
-
-    function setTCuenta($tCuenta) {
-        $this->tCuenta = $tCuenta;
-    }
-
-    function setUsuarioId($usuarioId) {
-        $this->usuarioId = $usuarioId;
-    }
-
-    function setIp($ip) {
+    /**
+     * Set ip
+     *
+     * @param string $ip
+     * @return Persona
+     */
+    public function setIp($ip)
+    {
         $this->ip = $ip;
+
+        return $this;
+    }
+
+    /**
+     * Get ip
+     *
+     * @return string 
+     */
+    public function getIp()
+    {
+        return $this->ip;
     }
 
     /**
@@ -369,6 +641,16 @@ class Persona
     }
 
     /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
@@ -381,27 +663,59 @@ class Persona
         return $this;
     }
 
-    function setBanco(\Banco $banco) {
-        $this->banco = $banco;
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 
-    function setData(\Data $data) {
+    /**
+     * Set banco
+     *
+     * @param \Saving\BoxBundle\Entity\Banco $banco
+     * @return Persona
+     */
+    public function setBanco(\Saving\BoxBundle\Entity\Banco $banco = null)
+    {
+        $this->banco = $banco;
+
+        return $this;
+    }
+
+    /**
+     * Get banco
+     *
+     * @return \Saving\BoxBundle\Entity\Banco 
+     */
+    public function getBanco()
+    {
+        return $this->banco;
+    }
+
+    /**
+     * Set data
+     *
+     * @param \Saving\BoxBundle\Entity\Data $data
+     * @return Persona
+     */
+    public function setData(\Saving\BoxBundle\Entity\Data $data = null)
+    {
         $this->data = $data;
+
+        return $this;
     }
-    
+
     /**
-     * @ORM\PrePersist
+     * Get data
+     *
+     * @return \Saving\BoxBundle\Entity\Data 
      */
-    public function setCreatedAtValue()
+    public function getData()
     {
-        $this->created_at = new \DateTime();
-    }
-    
-    /**
-     * @ORM\PreUpdate
-     */
-    public function setUpdatedAtValue()
-    {
-       $this->setUpdatedAt(new \DateTime());
+        return $this->data;
     }
 }

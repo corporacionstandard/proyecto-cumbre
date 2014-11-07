@@ -53,7 +53,7 @@ class BancoAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
+            //->add('id')
             ->add('descripcion')
             ->add('usuarioId')
             ->add('ip')

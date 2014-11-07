@@ -73,11 +73,16 @@ swiftmailer:
     spool:     { type: memory }
 
 sonata_admin:
-    title:      Box Bundle
+    title:      Admin Panel
     title_logo: bundles/savingbox/img/logo.png
+    templates:
+        show:       SavingBoxBundle:Admin:base_show.html.twig
     
     dashboard:
         blocks:
+#            -
+#                position: left
+#                type: sonata.admin.block.search_result
             -
                 position: left
                 type: sonata.admin.block.admin_list
@@ -100,6 +105,8 @@ sonata_block:
     default_contexts: [cms]
     blocks:
         sonata.admin.block.admin_list:
+            contexts: [admin]
+        sonata.admin.block.search_result:
             contexts: [admin]
         
         sonata.block.service.text:   ~
