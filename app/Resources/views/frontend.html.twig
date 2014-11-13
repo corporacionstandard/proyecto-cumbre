@@ -1,15 +1,15 @@
 {% extends '::base.html.twig' %}
 
 {% block stylesheets %}
-    {% stylesheets '@BoxBundle/Resources/public/css/bootstrap.css'
+    {% stylesheets '@SavingBoxBundle/Resources/public/css/bootstrap.min.css'
     %}
     <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
     {% endstylesheets %}
 {% endblock %}
     
 {% block javascripts %}
-    {% javascripts '@CompraBundle/Resources/public/js/jquery.min.js' 
-                   '@CompraBundle/Resources/public/js/bootstrap.js'
+    {% javascripts '@SavingBoxBundle/Resources/public/js/jquery.min.js' 
+                   '@SavingBoxBundle/Resources/public/js/bootstrap.min.js'
     %}
     <script src="{{ asset_url }}" type="text/javascript"></script>
     {% endjavascripts %}

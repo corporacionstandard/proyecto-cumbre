@@ -1,0 +1,53 @@
+Data:
+    type: entity
+    table: data
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        archivo:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        tipo:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+        usuarioId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            column: usuario_id
+        ip:
+            type: string
+            nullable: false
+            length: 80
+            fixed: false
+            comment: ''
+        createdAt:
+            type: datetime
+            nullable: true
+            comment: ''
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            comment: ''
+            column: updated_at
+    lifecycleCallbacks: {  }

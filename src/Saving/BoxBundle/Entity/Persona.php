@@ -187,6 +187,12 @@ class Persona
         $this->setUpdatedAt(new \DateTime());
     }
     
+    public function __toString() 
+    {
+        //return $this->getNombre1()." ".$this->getApellido1();
+        return $this->getNombre1();
+    }
+    
     /**
      * @ORM\PrePersist
      */

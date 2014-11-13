@@ -11,6 +11,25 @@ use Sonata\AdminBundle\Route\RouteCollection;
 
 class PersonaAdmin extends Admin
 {
+    public function getBatchActions()
+    {
+        // retrieve the default batch actions (currently only delete)
+        $actions = parent::getBatchActions();
+
+        if (
+          $this->hasRoute('edit') && $this->isGranted('EDIT') &&
+          $this->hasRoute('delete') && $this->isGranted('DELETE')
+        ) {
+            $actions['merge'] = array(
+                'label' => $this->trans('action_merge', array(), 'SonataAdminBundle'),
+                'ask_confirmation' => true
+            );
+
+        }
+
+        return $actions;
+    }
+    
     protected function configureRoutes(RouteCollection $collection)
     {
         // Only `list` and `edit` route will be active

@@ -35,10 +35,15 @@ sonata_user:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
     prefix: /admin
     
-    
-root:
-    path: /
-    defaults:
-        _controller: FrameworkBundle:Redirect:redirect
-        route: sonata_admin_dashboard
-        permanent: true
+portada:
+    pattern:  /{_locale}
+    defaults: { _controller: SavingBoxBundle:Default:index, _locale: es }
+    requirements:
+        _locale: en|es
+
+# Ruta de la portada básica del sitio (sin ningún parámetro)
+# esta ruta es opcional, ya que la aplicación puede funcionar bien
+# solamente con la ruta 'portada' y sus valores por defecto
+_portada:
+     pattern:  /
+     defaults: { _controller: FrameworkBundle:Redirect:redirect, route: portada, permanent: true }
