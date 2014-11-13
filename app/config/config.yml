@@ -87,7 +87,10 @@ sonata_admin:
     title:      Admin Panel
     title_logo: bundles/savingbox/img/logo.png
     templates:
-        show:       SavingBoxBundle:Admin:base_show.html.twig
+        show:                SavingBoxBundle:Admin:base_show.html.twig
+        
+        search:              SonataAdminBundle:Core:search.html.twig
+        search_result_block: SonataAdminBundle:Block:block_search_result.html.twig
     
     dashboard:
         blocks:

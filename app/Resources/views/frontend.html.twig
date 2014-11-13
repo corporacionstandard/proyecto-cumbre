@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {% stylesheets '@BoxBundle/Resources/public/css/bootstrap.css'
+    %}
+    <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+    
+{% block javascripts %}
+    {% javascripts '@CompraBundle/Resources/public/js/jquery.min.js' 
+                   '@CompraBundle/Resources/public/js/bootstrap.js'
+    %}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block body %}
+    
+{% block navbar %}{% endblock %}
+
+{% block anuncio %}{% endblock %}
+
+<article {{ block('id') }}>
+    {% block article %}{% endblock %}
+</article>
+
+<aside>
+{% block aside %}{% endblock %}
+</aside>
+    
+{% endblock %}
